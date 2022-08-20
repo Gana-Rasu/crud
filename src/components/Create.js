@@ -1,10 +1,19 @@
 import React from 'react';
+import './Create.css';
+import Button from '@mui/material/Button';
 
+import TextField from '@mui/material/TextField';
 
 function create() {
   return (
-    <div>
-       <h1>Create THIS PAGE</h1>
+    <div className="inputs">
+<TextField id="outlined-basic" label="ID" variant="outlined" /><br/>
+<TextField id="outlined-basic" label="NAME" variant="outlined" /><br/>
+<TextField id="outlined-basic" label="COURSE" variant="outlined" /><br/>
+<TextField id="outlined-basic" label="MENTOR" variant="outlined" /><br/>
+
+<Button variant="contained">SUBMIT</Button>
+
     </div>
   )
 }
