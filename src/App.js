@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link,useNavigate } from "react-router-dom";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Create from "./components/Create";
@@ -23,6 +23,10 @@ function App() {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 STUDENT MANAGEMENT
               </Typography>
+{/* 
+              <Button color="inherit" onClick={() => navigate("/create")}>
+                Create
+              </Button> */}
 
               <Button color="inherit">
                 <Link to="/create">Create</Link>

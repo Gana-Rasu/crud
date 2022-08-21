@@ -10,6 +10,7 @@ function Studentcard(props) {
   return (
     <div className="student">
       <Card sx={{ maxWidth: 275 }}>
+        
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
             Id : {props.id}
