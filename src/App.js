@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link,useNavigate } from "react-router-dom";
+import { Routes, Route, Link} from "react-router-dom";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Create from "./components/Create";
@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 function App() {
-  // const navigate = useNavigate();
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -24,21 +24,18 @@ function App() {
                 STUDENT MANAGEMENT
               </Typography>
 {/* 
-              <Button color="inherit" onClick={() => navigate("/create")}>
+              <Button color="inherit" onClick={()=>{navigate("/create")}}>
                 Create
               </Button> */}
 
-              <Button color="inherit">
-                <Link to="/create">Create</Link>
-              </Button>
+{/* <Button variant="outlined" href="#contained-buttons"> */}
+           <Link to="/create">CREATE</Link>
+      {/* </Button> */}
 
-              <Button color="inherit">
-                <Link to="/read">Read</Link>
-              </Button>
+               {/* <Button color="inherit">
+             
+              </Button>  */}
 
-              <Button color="inherit">
-                <Link to="/update">Update</Link>
-              </Button>
 
             </Toolbar>
           </AppBar>
@@ -47,7 +44,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<Create />} />
           <Route path="/read" element={<Read />} />
-          <Route path="/update" element={<Update />} />
+          <Route path="/update/:id" element={<Update />} />
        
         </Routes>
       </BrowserRouter>

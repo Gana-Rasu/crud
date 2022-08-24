@@ -1,6 +1,6 @@
-import React ,{useEffect,useState} from 'react';
-import Studentcard from './Studentcard';
-import './Home.css';
+import React, { useEffect, useState } from "react";
+import Studentcard from "./Studentcard";
+import "./Home.css";
 
 // const studentData = [{
 //     "id": "1",
@@ -29,22 +29,30 @@ import './Home.css';
 // ]
 
 function Home() {
+  const [studentData, setData] = useState([]);
 
-    const [studentData,setData] = useState([]);
+  const getData = ()=>{
+    fetch("https://62ac315ebd0e5d29af1cc1c8.mockapi.io/students")
+    .then((response) => response.json())
+    .then((studentData) => setData(studentData));
+}
+  
 
-    useEffect(()=>{
-        fetch("https://62ac315ebd0e5d29af1cc1c8.mockapi.io/students")
-        .then((response) => response.json())
-          .then((studentData) => setData(studentData))
-          },[])
+  useEffect(() => getData(), []);
 
   return (
     <div className="home">
-        {studentData.map((data,index)=>(
-    <Studentcard key={index} name={data.name} id={data.id} course={data.course} mentor={data.mentor}  />
-        ))}
+      {studentData.map((data, index) => (
+        <Studentcard
+          key={index}
+          name={data.name}
+          id={data.id}
+          course={data.course}
+          mentor={data.mentor}
+        />
+      ))}
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
