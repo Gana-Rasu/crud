@@ -1,13 +1,17 @@
 import React from "react";
 import "./Studentcard.css";
+import { useNavigate} from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
+
 
 function Studentcard(props) {
+
+  const navigate = useNavigate();
+
   return (
     <div className="student">
       <Card sx={{ maxWidth: 275 }}>
@@ -29,9 +33,7 @@ function Studentcard(props) {
         {/* edit and delete */}
         <div className="buttons">
           <CardActions>
-            <Link to={`/update/${props.id}`}>
-              <Button size="small">EDIT</Button>
-            </Link>
+              <Button size="small" onClick={()=>{navigate(`/update/${props.id}`)}} >EDIT</Button>
           </CardActions>
           <CardActions>
             <Button

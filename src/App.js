@@ -1,19 +1,16 @@
 import React from "react";
-import { Routes, Route, Link} from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Create from "./components/Create";
-import Read from "./components/Read";
 import Update from "./components/Update";
 import Home from "./components/Home";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -23,29 +20,15 @@ function App() {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 STUDENT MANAGEMENT
               </Typography>
-{/* 
-              <Button color="inherit" onClick={()=>{navigate("/create")}}>
-                Create
-              </Button> */}
 
-{/* <Button variant="outlined" href="#contained-buttons"> */}
-           <Link to="/create">CREATE</Link>
-      {/* </Button> */}
-
-               {/* <Button color="inherit">
-             
-              </Button>  */}
-
-
+              <Link to="/create">CREATE</Link>
             </Toolbar>
           </AppBar>
         </Box>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/read" element={<Read />} />
           <Route path="/update/:id" element={<Update />} />
-       
         </Routes>
       </BrowserRouter>
     </div>

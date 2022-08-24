@@ -3,6 +3,7 @@ import "./Create.css";
 import Button from "@mui/material/Button";
 import { useNavigate} from "react-router-dom";
 import TextField from "@mui/material/TextField";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function Create() {
 
@@ -15,6 +16,7 @@ function Create() {
   const [mentor,setMentor]=useState("");
 
   return (
+    <div>
     <div className="inputs">
       <TextField id="outlined-basic" label="ID" variant="outlined" onChange={(event) => setId(event.target.value)} />
       <br />
@@ -47,6 +49,18 @@ function Create() {
         }}
       >
         SUBMIT
+      </Button>
+    </div>
+    <Button
+
+      style={{margin:"5%"}}
+        variant="outlined"
+        startIcon={<ArrowBackIosIcon />}
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        BACK
       </Button>
     </div>
   );
