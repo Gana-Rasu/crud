@@ -9,6 +9,7 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
 
 function App() {
   return (
@@ -21,14 +22,15 @@ function App() {
                 STUDENT MANAGEMENT
               </Typography>
 
-              <Link to="/create">CREATE</Link>
+              <Button className="create"> <Link to="/create">CREATE</Link></Button>
+             
             </Toolbar>
           </AppBar>
         </Box>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/update/:id" element={<Update />} />
+          <Route path="/update/:ID" element={<Update />} />
         </Routes>
       </BrowserRouter>
     </div>

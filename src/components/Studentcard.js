@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 
-function Studentcard(props) {
+function Studentcard({data,sno,getData}) {
 
   const navigate = useNavigate();
 
@@ -17,34 +17,35 @@ function Studentcard(props) {
       <Card sx={{ maxWidth: 275 }}>
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
-            Id : {props.id}
+            Id : {sno}
           </Typography>
           <Typography gutterBottom variant="h6" component="div">
-            Name : {props.name}
+            Name : {data.name}
           </Typography>
           <Typography gutterBottom variant="h6" component="div">
-            Course : {props.course}
+            Course : {data.Course}
           </Typography>
           <Typography gutterBottom variant="h6" component="div">
-            Mentor : {props.mentor}
+            Mentor : {data.Mentor}
           </Typography>
         </CardContent>
 
         {/* edit and delete */}
         <div className="buttons">
           <CardActions>
-              <Button size="small" onClick={()=>{navigate(`/update/${props.id}`)}} >EDIT</Button>
+              <Button size="small" onClick={()=>{navigate(`/update/${data.id}`)}} >EDIT</Button>
           </CardActions>
           <CardActions>
             <Button
               size="small"
               onClick={() => {
                 fetch(
-                  `https://62ac315ebd0e5d29af1cc1c8.mockapi.io/students/${props.id}`,
+                  `https://62ac315ebd0e5d29af1cc1c8.mockapi.io/students/${data.id}`,
                   {
                     method: "DELETE",
                   }
-                ).then((response) => response.json());
+                ).then((response) => response.json())
+                .then((data)=>getData());
               }}
             >
               DELETE

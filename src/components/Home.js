@@ -45,10 +45,12 @@ function Home() {
       {studentData.map((data, index) => (
         <Studentcard
           key={index}
-          name={data.name}
-          id={data.id}
-          course={data.course}
-          mentor={data.mentor}
+          // name={data.name}
+          sno={index+1}
+          data={data}
+          getData={getData}
+          // course={data.course}
+          // mentor={data.mentor}
         />
       ))}
     </div>

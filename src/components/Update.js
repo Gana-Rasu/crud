@@ -1,35 +1,87 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function Update() {
+  // const [id,setId]=useState("");
+  const [name, setName] = useState("");
+  const [course, setCourse] = useState("");
+  const [mentor, setMentor] = useState("");
+
+  const { ID } = useParams();
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (ID)
+      fetch(`https://62ac315ebd0e5d29af1cc1c8.mockapi.io/students/${ID}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setName(data.name);
+          setCourse(data.Course);
+          setMentor(data.Mentor);
+        });
+  }, [ID]);
+
   return (
     <div>
       <div className="inputs">
-        <TextField id="outlined-basic" label="ID" variant="outlined" />
+        {/* <TextField value={id} id="outlined-basic" label="ID" variant="outlined" onChange={(event) => setId(event.target.value)} />
+        <br /> */}
+        <TextField
+          value={name}
+          id="outlined-basic"
+          label="NAME"
+          variant="outlined"
+          onChange={(event) => setName(event.target.value)}
+        />
         <br />
-        <TextField id="outlined-basic" label="NAME" variant="outlined" />
+        <TextField
+          value={course}
+          id="outlined-basic"
+          label="COURSE"
+          variant="outlined"
+          onChange={(event) => setCourse(event.target.value)}
+        />
         <br />
-        <TextField id="outlined-basic" label="COURSE" variant="outlined" />
-        <br />
-        <TextField id="outlined-basic" label="MENTOR" variant="outlined" />
+        <TextField
+          value={mentor}
+          id="outlined-basic"
+          label="MENTOR"
+          variant="outlined"
+          onChange={(event) => setMentor(event.target.value)}
+        />
         <br />
 
         <Button
           variant="contained"
           onClick={() => {
+            fetch(
+              `https://62ac315ebd0e5d29af1cc1c8.mockapi.io/students/${ID}`,{
+                method:'PUT',
+                body:JSON.stringify({
+                  name:name,
+                  Course:course,
+                  Mentor:mentor
+                }),
+                headers:{
+                  "Content-Type":"application/json",
+                },
+              }
+            ).then((response) => response.json())
+            .then((data)=>console.log(data))
+
             navigate("/");
           }}
         >
-          SUBMIT
+          EDIT
         </Button>
       </div>
 
       <Button
-         style={{margin:"5%"}}
+        style={{ margin: "5%" }}
         variant="outlined"
         startIcon={<ArrowBackIosIcon />}
         onClick={() => {
