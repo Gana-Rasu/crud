@@ -20,7 +20,10 @@ function Studentcard({data,sno,getData}) {
             Id : {sno}
           </Typography>
           <Typography gutterBottom variant="h6" component="div">
-            Name : {data.name}
+            Name : {data.Name}
+          </Typography>
+          <Typography gutterBottom variant="h6" component="div">
+            Batch : {data.Batch}
           </Typography>
           <Typography gutterBottom variant="h6" component="div">
             Course : {data.Course}

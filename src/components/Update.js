@@ -5,8 +5,9 @@ import TextField from "@mui/material/TextField";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function Update() {
-  // const [id,setId]=useState("");
+ 
   const [name, setName] = useState("");
+  const [batch, setBatch] = useState("");
   const [course, setCourse] = useState("");
   const [mentor, setMentor] = useState("");
 
@@ -19,7 +20,8 @@ function Update() {
       fetch(`https://62ac315ebd0e5d29af1cc1c8.mockapi.io/students/${ID}`)
         .then((response) => response.json())
         .then((data) => {
-          setName(data.name);
+          setName(data.Name);
+          setBatch(data.Batch);
           setCourse(data.Course);
           setMentor(data.Mentor);
         });
@@ -28,8 +30,7 @@ function Update() {
   return (
     <div>
       <div className="inputs">
-        {/* <TextField value={id} id="outlined-basic" label="ID" variant="outlined" onChange={(event) => setId(event.target.value)} />
-        <br /> */}
+      
         <TextField
           value={name}
           id="outlined-basic"
@@ -38,6 +39,16 @@ function Update() {
           onChange={(event) => setName(event.target.value)}
         />
         <br />
+
+        <TextField
+          value={batch}
+          id="outlined-basic"
+          label="BATCH"
+          variant="outlined"
+          onChange={(event) => setBatch(event.target.value)}
+        />
+        <br />
+        
         <TextField
           value={course}
           id="outlined-basic"
@@ -62,7 +73,7 @@ function Update() {
               `https://62ac315ebd0e5d29af1cc1c8.mockapi.io/students/${ID}`,{
                 method:'PUT',
                 body:JSON.stringify({
-                  name:name,
+                  Name:name,
                   Course:course,
                   Mentor:mentor
                 }),

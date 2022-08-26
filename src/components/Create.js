@@ -12,15 +12,16 @@ function Create() {
 
   // const [id,setId]=useState("");
   const [name,setName]=useState("");
+  const [batch,setBatch]=useState("");
   const [course,setCourse]=useState("");
   const [mentor,setMentor]=useState("");
 
   return (
     <div>
     <div className="inputs">
-      {/* <TextField id="outlined-basic" label="ID" variant="outlined" onChange={(event) => setId(event.target.value)} />
-      <br /> */}
       <TextField id="outlined-basic" label="NAME" variant="outlined" onChange={(event) => setName(event.target.value)} />
+      <br />
+      <TextField id="outlined-basic" label="BATCH" variant="outlined" onChange={(event) => setBatch(event.target.value)} />
       <br />
       <TextField id="outlined-basic" label="COURSE" variant="outlined" onChange={(event) => setCourse(event.target.value)} />
       <br />
@@ -35,7 +36,8 @@ function Create() {
               method:'POST',
               body:JSON.stringify({
                 // id:id,
-                name:name,
+                Name:name,
+                Batch:batch,
                 Course:course,
                 Mentor:mentor
               }),
