@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
+import Formdemo from "./components/Formdemo";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<Create />} />
           <Route path="/update/:ID" element={<Update />} />
+          <Route path="/form" element={<Formdemo/>} />
         </Routes>
       </BrowserRouter>
     </div>
