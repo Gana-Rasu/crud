@@ -74,6 +74,7 @@ function Update() {
                 method:'PUT',
                 body:JSON.stringify({
                   Name:name,
+                  Batch:batch,
                   Course:course,
                   Mentor:mentor
                 }),
